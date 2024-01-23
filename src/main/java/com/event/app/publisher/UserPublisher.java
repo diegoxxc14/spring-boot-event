@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
 import com.event.app.event.UserRegisteredEvent;
+import com.event.app.event.UserValidatedEvent;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +20,12 @@ public class UserPublisher {
 
     // Publicar el evento
     public void publishUserRegisteredEvent(String username, String password, byte age) {
-        log.info("PUBLISH: Event has been published");
+        log.info("PUBLISH: Event has been published: publishUserRegisteredEvent");
         applicationEventPublisher.publishEvent(new UserRegisteredEvent(username, password, age));
+    }
+
+    public void publishUserValidatedEvent(String username, boolean isValid) {
+        log.info("PUBLISH: Event has been published: publishUserValidatedEvent");
+        applicationEventPublisher.publishEvent(new UserValidatedEvent(username, isValid));
     }
 }

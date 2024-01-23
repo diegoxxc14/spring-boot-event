@@ -19,8 +19,11 @@ public class SpringBootEventApplication { // implements CommandLineRunner (otra 
 		// Ejecutar cuando se levante la aplicación
 		return args -> {
 			// Se pueden publicar multiples eventos
-			userPublisher.publishUserRegisteredEvent("diego", "1234", (byte) 30);
+			//userPublisher.publishUserRegisteredEvent("diego", "1234", (byte) 30);
 			userPublisher.publishUserRegisteredEvent("silvis", "1234", (byte) 29);
+			
+			// Publicar el evento manualmente
+			userPublisher.publishUserValidatedEvent("diego", false);
 		};
 	}
 
