@@ -18,8 +18,8 @@ public class UserPublisher {
     }
 
     // Publicar el evento
-    public void publishUserRegisteredEvent() {
+    public void publishUserRegisteredEvent(String username, String password, byte age) {
         log.info("PUBLISH: Event has been published");
-        applicationEventPublisher.publishEvent(new UserRegisteredEvent("diego", "1234", (byte) 30));
+        applicationEventPublisher.publishEvent(new UserRegisteredEvent(username, password, age));
     }
 }
